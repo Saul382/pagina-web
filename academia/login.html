@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Acceso al portal de estudiantes de Nexa English Academy.">
+  <title>Acceso de estudiantes | Nexa English Academy</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Nexa English Academy, volver al inicio" data-aria-es="Nexa English Academy, volver al inicio" data-aria-en="Nexa English Academy, return to home">
+        <img class="brand-logo" src="img/logo-nexa.jpeg" alt="Nexa English Academy — Learn, Speak, Achieve">
+      </a>
+      <nav class="primary-navigation login-navigation" aria-label="Navegación principal" data-aria-es="Navegación principal" data-aria-en="Primary navigation">
+        <a href="index.html" data-es="Página principal" data-en="Home page">Página principal</a>
+        <div class="language-switch" role="group" aria-label="Selector de idioma" data-aria-es="Selector de idioma" data-aria-en="Language selector">
+          <button type="button" class="language-button is-active" data-language="es" aria-pressed="true">ES</button>
+          <span aria-hidden="true">|</span>
+          <button type="button" class="language-button" data-language="en" aria-pressed="false">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="auth-main">
+    <section class="auth-card" id="auth-panel" aria-labelledby="login-title">
+      <p class="eyebrow" data-es="Portal estudiantil" data-en="Student portal">Portal estudiantil</p>
+      <h1 id="login-title" data-es="Acceso de estudiantes" data-en="Student sign-in">Acceso de estudiantes</h1>
+      <p class="auth-intro" data-es="Ingrese sus credenciales para acceder al portal estudiantil." data-en="Enter your credentials to access the student portal.">Ingrese sus credenciales para acceder al portal estudiantil.</p>
+      <p class="auth-storage-note" data-es="Las cuentas creadas se guardan en este navegador." data-en="Accounts created are stored in this browser.">Las cuentas creadas se guardan en este navegador.</p>
+
+      <div class="auth-switch" role="group" aria-label="Tipo de acceso" data-aria-es="Tipo de acceso" data-aria-en="Access type">
+        <button class="auth-switch-button is-active" type="button" id="show-login" aria-pressed="true" data-es="Iniciar sesión" data-en="Sign in">Iniciar sesión</button>
+        <button class="auth-switch-button" type="button" id="show-register" aria-pressed="false" data-es="Crear cuenta" data-en="Create account">Crear cuenta</button>
+      </div>
+
+      <form class="auth-form" id="student-login" novalidate>
+        <div class="auth-field">
+          <label for="login-email" data-es="Correo electrónico" data-en="Email address">Correo electrónico</label>
+          <input id="login-email" name="email" type="email" autocomplete="username" required data-placeholder-es="Ingrese su correo electrónico" data-placeholder-en="Enter your email address" placeholder="Ingrese su correo electrónico">
+        </div>
+        <div class="auth-field">
+          <label for="login-password" data-es="Contraseña" data-en="Password">Contraseña</label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" required data-placeholder-es="Ingrese su contraseña" data-placeholder-en="Enter your password" placeholder="Ingrese su contraseña">
+        </div>
+        <button class="button button-accent" type="submit" data-es="Iniciar sesión" data-en="Sign in">Iniciar sesión</button>
+      </form>
+
+      <form class="auth-form" id="student-register" hidden>
+        <div class="auth-field">
+          <label for="register-name" data-es="Nombre completo" data-en="Full name">Nombre completo</label>
+          <input id="register-name" name="name" type="text" autocomplete="name" minlength="2" required data-placeholder-es="Ingrese su nombre completo" data-placeholder-en="Enter your full name" placeholder="Ingrese su nombre completo">
+        </div>
+        <div class="auth-field">
+          <label for="register-email" data-es="Correo electrónico" data-en="Email address">Correo electrónico</label>
+          <input id="register-email" name="email" type="email" autocomplete="email" required data-placeholder-es="Ingrese su correo electrónico" data-placeholder-en="Enter your email address" placeholder="Ingrese su correo electrónico">
+        </div>
+        <div class="auth-field">
+          <label for="register-password" data-es="Contraseña" data-en="Password">Contraseña</label>
+          <input id="register-password" name="password" type="password" autocomplete="new-password" minlength="8" required data-placeholder-es="Mínimo 8 caracteres" data-placeholder-en="At least 8 characters" placeholder="Mínimo 8 caracteres">
+        </div>
+        <div class="auth-field">
+          <label for="register-password-confirm" data-es="Confirmar contraseña" data-en="Confirm password">Confirmar contraseña</label>
+          <input id="register-password-confirm" name="password-confirm" type="password" autocomplete="new-password" minlength="8" required data-placeholder-es="Repita su contraseña" data-placeholder-en="Re-enter your password" placeholder="Repita su contraseña">
+        </div>
+        <button class="button button-accent" type="submit" data-es="Crear cuenta" data-en="Create account">Crear cuenta</button>
+      </form>
+
+      <p class="auth-feedback" id="auth-feedback" role="status" aria-live="polite"></p>
+      <a class="auth-back" href="index.html" data-es="← Volver a la página principal" data-en="← Return to the home page">← Volver a la página principal</a>
+    </section>
+
+    <section class="auth-card profile-card" id="student-profile" aria-labelledby="profile-title" hidden>
+      <p class="eyebrow" data-es="Portal estudiantil" data-en="Student portal">Portal estudiantil</p>
+      <h1 id="profile-title" data-es="Perfil del estudiante" data-en="Student profile">Perfil del estudiante</h1>
+      <p class="auth-intro" data-es="Consulte sus datos personales y el curso que ha elegido." data-en="Review your personal details and the course you have chosen.">Consulte sus datos personales y el curso que ha elegido.</p>
+      <div class="profile-identity">
+        <div class="profile-avatar" id="profile-initials" aria-hidden="true"></div>
+        <div class="profile-identity-copy">
+          <strong id="profile-name"></strong>
+          <span id="profile-email"></span>
+        </div>
+      </div>
+      <dl class="profile-details">
+        <div><dt data-es="Cuenta creada" data-en="Account created">Cuenta creada</dt><dd id="profile-created"></dd></div>
+      </dl>
+      <section class="profile-course" id="profile-course" aria-labelledby="profile-course-title" hidden>
+        <div class="profile-course-heading">
+          <h2 id="profile-course-title" data-es="Curso elegido" data-en="Chosen course">Curso elegido</h2>
+          <span class="profile-course-badge" data-es="Selección actual" data-en="Current selection">Selección actual</span>
+        </div>
+        <dl class="profile-details">
+          <div><dt data-es="Nivel" data-en="Level">Nivel</dt><dd id="profile-course-name"></dd></div>
+          <div><dt data-es="Duración" data-en="Duration">Duración</dt><dd id="profile-course-duration"></dd></div>
+          <div><dt data-es="Horario" data-en="Schedule">Horario</dt><dd id="profile-course-schedule"></dd></div>
+          <div><dt data-es="Mensualidad" data-en="Monthly fee">Mensualidad</dt><dd id="profile-course-fee"></dd></div>
+          <div><dt data-es="Selección actualizada" data-en="Selection updated">Selección actualizada</dt><dd id="profile-course-selected-at"></dd></div>
+        </dl>
+      </section>
+      <p class="profile-course-empty" id="profile-course-empty" data-es="Aún no ha elegido un curso. Puede consultar los niveles y horarios disponibles." data-en="You have not chosen a course yet. You can review the available levels and schedules." hidden>Aún no ha elegido un curso. Puede consultar los niveles y horarios disponibles.</p>
+      <div class="profile-actions">
+        <a class="button button-accent" id="profile-course-link" href="index.html#niveles" data-es="Explorar niveles" data-en="Browse levels">Explorar niveles</a>
+        <button class="button button-outline" id="sign-out" type="button" data-es="Cerrar sesión" data-en="Sign out">Cerrar sesión</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-es="© 2026 Nexa English Academy – Universidad Gerardo Barrios, Software Libre" data-en="© 2026 Nexa English Academy – Gerardo Barrios University, Open Source Software">© 2026 Nexa English Academy – Universidad Gerardo Barrios, Software Libre</p>
+      <a href="index.html" data-es="Página principal" data-en="Home page">Página principal</a>
+    </div>
+  </footer>
+
+  <script>
+    const languageButtons = document.querySelectorAll(".language-button");
+    const loginForm = document.querySelector("#student-login");
+    const registerForm = document.querySelector("#student-register");
+    const authPanel = document.querySelector("#auth-panel");
+    const profilePanel = document.querySelector("#student-profile");
+    const authFeedback = document.querySelector("#auth-feedback");
+    const loginTab = document.querySelector("#show-login");
+    const registerTab = document.querySelector("#show-register");
+    const accountStorageKey = "nexa-student-accounts";
+    const activeSessionKey = "nexa-student-session";
+    const pendingCourseKey = "nexa-pending-course";
+    const profileCourse = document.querySelector("#profile-course");
+    const profileCourseEmpty = document.querySelector("#profile-course-empty");
+    const passwordIterations = 210000;
+    let currentFeedbackKey = null;
+
+    const courseCatalog = {
+      "a1-a2": { nameEs: "Básico A1–A2", nameEn: "Basic A1–A2", durationEs: "4 meses", durationEn: "4 months", scheduleEs: "Lun. y mié. · 5:00 p. m.", scheduleEn: "Mon. and Wed. · 5:00 p.m.", feeEs: "$35 USD / mes", feeEn: "$35 USD / month" },
+      b1: { nameEs: "Intermedio B1", nameEn: "Intermediate B1", durationEs: "4 meses", durationEn: "4 months", scheduleEs: "Mar. y jue. · 6:00 p. m.", scheduleEn: "Tue. and Thu. · 6:00 p.m.", feeEs: "$40 USD / mes", feeEn: "$40 USD / month" },
+      b2: { nameEs: "Intermedio alto B2", nameEn: "Upper-intermediate B2", durationEs: "5 meses", durationEn: "5 months", scheduleEs: "Lun. y mié. · 7:00 p. m.", scheduleEn: "Mon. and Wed. · 7:00 p.m.", feeEs: "$45 USD / mes", feeEn: "$45 USD / month" },
+      c1: { nameEs: "Avanzado C1", nameEn: "Advanced C1", durationEs: "5 meses", durationEn: "5 months", scheduleEs: "Sábados · 8:00 a. m.", scheduleEn: "Saturdays · 8:00 a.m.", feeEs: "$50 USD / mes", feeEn: "$50 USD / month" }
+    };
+
+    const translations = {
+      es: {
+        title: "Acceso de estudiantes | Nexa English Academy",
+        description: "Acceso al portal de estudiantes de Nexa English Academy.",
+        invalidCredentials: "El correo electrónico o la contraseña no son correctos.",
+        accountExists: "Ya existe una cuenta con este correo electrónico.",
+        passwordsMismatch: "Las contraseñas no coinciden.",
+        storageError: "No fue posible acceder al almacenamiento de cuentas de este navegador.",
+        passwordSupportError: "El navegador no permite proteger las credenciales en este contexto.",
+        accountReadError: "No fue posible leer las cuentas guardadas en este navegador.",
+        signOutMessage: "Ha cerrado sesión correctamente."
+      },
+      en: {
+        title: "Student Sign-in | Nexa English Academy",
+        description: "Access the Nexa English Academy student portal.",
+        invalidCredentials: "The email address or password is incorrect.",
+        accountExists: "An account with this email address already exists.",
+        passwordsMismatch: "The passwords do not match.",
+        storageError: "The account storage for this browser could not be accessed.",
+        passwordSupportError: "This browser context does not support protected credentials.",
+        accountReadError: "The accounts saved in this browser could not be read.",
+        signOutMessage: "You have signed out successfully."
+      }
+    };
+
+    function getAccounts() {
+      const savedAccounts = localStorage.getItem(accountStorageKey);
+      if (!savedAccounts) {
+        return {};
+      }
+
+      const accounts = JSON.parse(savedAccounts);
+      if (!accounts || Array.isArray(accounts) || typeof accounts !== "object") {
+        throw new SyntaxError("Invalid account storage format.");
+      }
+      return accounts;
+    }
+
+    function getCurrentSession() {
+      let savedSession = localStorage.getItem(activeSessionKey);
+      if (!savedSession) {
+        savedSession = sessionStorage.getItem(activeSessionKey);
+        if (savedSession) {
+          localStorage.setItem(activeSessionKey, savedSession);
+          sessionStorage.removeItem(activeSessionKey);
+        }
+      }
+      return savedSession ? JSON.parse(savedSession) : null;
+    }
+
+    function encodeBytes(bytes) {
+      return btoa(String.fromCharCode(...new Uint8Array(bytes)));
+    }
+
+    function decodeBytes(value) {
+      return Uint8Array.from(atob(value), (character) => character.charCodeAt(0));
+    }
+
+    async function hashPassword(password, salt) {
+      if (!window.crypto || !window.crypto.subtle) {
+        throw new Error("Protected credentials are unavailable.");
+      }
+
+      const keyMaterial = await window.crypto.subtle.importKey(
+        "raw",
+        new TextEncoder().encode(password),
+        "PBKDF2",
+        false,
+        ["deriveBits"]
+      );
+      const derivedBits = await window.crypto.subtle.deriveBits(
+        { name: "PBKDF2", salt, iterations: passwordIterations, hash: "SHA-256" },
+        keyMaterial,
+        256
+      );
+      return encodeBytes(derivedBits);
+    }
+
+    function showFeedback(messageKey = null, isError = false) {
+      currentFeedbackKey = messageKey;
+      const language = document.documentElement.lang === "en" ? "en" : "es";
+      authFeedback.textContent = messageKey ? translations[language][messageKey] : "";
+      authFeedback.classList.toggle("is-error", isError);
+    }
+
+    function showAuthForm(mode, feedback = null) {
+      authPanel.hidden = false;
+      profilePanel.hidden = true;
+      loginForm.hidden = mode !== "login";
+      registerForm.hidden = mode !== "register";
+      loginTab.classList.toggle("is-active", mode === "login");
+      registerTab.classList.toggle("is-active", mode === "register");
+      loginTab.setAttribute("aria-pressed", String(mode === "login"));
+      registerTab.setAttribute("aria-pressed", String(mode === "register"));
+      showFeedback(feedback);
+    }
+
+    function showProfile(account) {
+      authPanel.hidden = true;
+      profilePanel.hidden = false;
+      const profileName = document.querySelector("#profile-name");
+      profileName.textContent = account.name;
+      document.querySelector("#profile-email").textContent = account.email;
+      document.querySelector("#profile-initials").textContent = account.name
+        .trim()
+        .split(/\s+/)
+        .slice(0, 2)
+        .map((part) => Array.from(part)[0] || "")
+        .join("")
+        .toLocaleUpperCase(document.documentElement.lang === "en" ? "en-US" : "es-SV");
+      const language = document.documentElement.lang === "en" ? "en" : "es";
+      document.querySelector("#profile-created").textContent = new Intl.DateTimeFormat(
+        language === "en" ? "en-US" : "es-SV",
+        { dateStyle: "long" }
+      ).format(new Date(account.createdAt));
+      const course = account.course && courseCatalog[account.course.id];
+      profileCourse.hidden = !course;
+      profileCourseEmpty.hidden = Boolean(course);
+      document.querySelector("#profile-course-link").textContent = course
+        ? (language === "en" ? "Change course" : "Cambiar curso")
+        : (language === "en" ? "Browse levels" : "Explorar niveles");
+      if (course) {
+        document.querySelector("#profile-course-name").textContent = course[language === "en" ? "nameEn" : "nameEs"];
+        document.querySelector("#profile-course-duration").textContent = course[language === "en" ? "durationEn" : "durationEs"];
+        document.querySelector("#profile-course-schedule").textContent = course[language === "en" ? "scheduleEn" : "scheduleEs"];
+        document.querySelector("#profile-course-fee").textContent = course[language === "en" ? "feeEn" : "feeEs"];
+        document.querySelector("#profile-course-selected-at").textContent = new Intl.DateTimeFormat(
+          language === "en" ? "en-US" : "es-SV",
+          { dateStyle: "medium", timeStyle: "short" }
+        ).format(new Date(account.course.selectedAt));
+      }
+    }
+
+    function applyPendingCourse(account, accounts) {
+      const courseId = sessionStorage.getItem(pendingCourseKey);
+      const course = courseCatalog[courseId];
+      if (!course) {
+        if (courseId) {
+          sessionStorage.removeItem(pendingCourseKey);
+        }
+        return account;
+      }
+
+      account.course = {
+        id: courseId,
+        nameEs: course.nameEs,
+        nameEn: course.nameEn,
+        durationEs: course.durationEs,
+        durationEn: course.durationEn,
+        scheduleEs: course.scheduleEs,
+        scheduleEn: course.scheduleEn,
+        feeEs: course.feeEs,
+        feeEn: course.feeEn,
+        selectedAt: new Date().toISOString()
+      };
+      accounts[account.email] = account;
+      localStorage.setItem(accountStorageKey, JSON.stringify(accounts));
+      sessionStorage.removeItem(pendingCourseKey);
+      return account;
+    }
+
+    function setLanguage(language) {
+      const selectedLanguage = language === "en" ? "en" : "es";
+      const translation = translations[selectedLanguage];
+      document.documentElement.lang = selectedLanguage;
+      document.querySelectorAll("[data-es][data-en]").forEach((element) => {
+        element.textContent = element.dataset[selectedLanguage];
+      });
+      document.querySelectorAll("[data-aria-es][data-aria-en]").forEach((element) => {
+        element.setAttribute("aria-label", element.getAttribute(`data-aria-${selectedLanguage}`));
+      });
+      document.querySelectorAll("[data-placeholder-es][data-placeholder-en]").forEach((element) => {
+        element.placeholder = element.getAttribute(`data-placeholder-${selectedLanguage}`);
+      });
+      document.title = translation.title;
+      document.querySelector('meta[name="description"]').content = translation.description;
+      languageButtons.forEach((button) => {
+        const isSelected = button.dataset.language === selectedLanguage;
+        button.classList.toggle("is-active", isSelected);
+        button.setAttribute("aria-pressed", String(isSelected));
+      });
+      if (currentFeedbackKey) {
+        showFeedback(currentFeedbackKey, authFeedback.classList.contains("is-error"));
+      }
+
+      if (!profilePanel.hidden) {
+        try {
+          const currentSession = getCurrentSession();
+          const account = currentSession && getAccounts()[currentSession.email];
+          if (account) {
+            showProfile(account);
+          }
+        } catch (error) {
+          showAuthForm("login", "accountReadError");
+        }
+      }
+
+      try {
+        localStorage.setItem("nexa-language", selectedLanguage);
+      } catch (error) {
+        // El cambio de idioma se mantiene aunque no pueda guardarse la preferencia.
+      }
+    }
+
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.language));
+    });
+
+    loginTab.addEventListener("click", () => showAuthForm("login"));
+    registerTab.addEventListener("click", () => showAuthForm("register"));
+
+    loginForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!loginForm.reportValidity()) {
+        return;
+      }
+      const email = loginForm.elements.email.value.trim().toLowerCase();
+      const password = loginForm.elements.password.value;
+
+      try {
+        const accounts = getAccounts();
+        let account = accounts[email];
+        if (!account || await hashPassword(password, decodeBytes(account.salt)) !== account.passwordHash) {
+          showFeedback("invalidCredentials", true);
+          return;
+        }
+        localStorage.setItem(activeSessionKey, JSON.stringify({ email }));
+        account = applyPendingCourse(account, accounts);
+        loginForm.reset();
+        showFeedback();
+        showProfile(account);
+      } catch (error) {
+        const messageKey = error instanceof SyntaxError ?
+          "accountReadError" :
+          error instanceof DOMException ?
+            "storageError" :
+            "passwordSupportError";
+        showFeedback(messageKey, true);
+      }
+    });
+
+    registerForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!registerForm.reportValidity()) {
+        return;
+      }
+      const name = registerForm.elements.name.value.trim();
+      const email = registerForm.elements.email.value.trim().toLowerCase();
+      const password = registerForm.elements.password.value;
+      const passwordConfirmation = registerForm.elements["password-confirm"].value;
+
+      if (password !== passwordConfirmation) {
+        showFeedback("passwordsMismatch", true);
+        return;
+      }
+
+      if (!window.crypto || !window.crypto.subtle) {
+        showFeedback("passwordSupportError", true);
+        return;
+      }
+
+      try {
+        const accounts = getAccounts();
+        if (accounts[email]) {
+          showFeedback("accountExists", true);
+          return;
+        }
+
+        const salt = window.crypto.getRandomValues(new Uint8Array(16));
+        const account = {
+          name,
+          email,
+          salt: encodeBytes(salt),
+          passwordHash: await hashPassword(password, salt),
+          createdAt: new Date().toISOString()
+        };
+        accounts[email] = account;
+        localStorage.setItem(accountStorageKey, JSON.stringify(accounts));
+        localStorage.setItem(activeSessionKey, JSON.stringify({ email }));
+        applyPendingCourse(account, accounts);
+        registerForm.reset();
+        showFeedback();
+        showProfile(account);
+      } catch (error) {
+        const messageKey = error instanceof SyntaxError ?
+          "accountReadError" :
+          error instanceof DOMException ?
+            "storageError" :
+            "passwordSupportError";
+        showFeedback(messageKey, true);
+      }
+    });
+
+    document.querySelector("#sign-out").addEventListener("click", () => {
+      try {
+        localStorage.removeItem(activeSessionKey);
+        sessionStorage.removeItem(activeSessionKey);
+        showAuthForm("login", "signOutMessage");
+      } catch (error) {
+        showAuthForm("login", "storageError");
+      }
+    });
+
+    let savedLanguage = "es";
+    try {
+      savedLanguage = localStorage.getItem("nexa-language") || "es";
+    } catch (error) {
+      // El idioma predeterminado es español si el almacenamiento local no está disponible.
+    }
+    setLanguage(savedLanguage);
+
+    try {
+      const currentSession = getCurrentSession();
+      if (currentSession && currentSession.email) {
+        const account = getAccounts()[currentSession.email];
+        if (account) {
+          showProfile(account);
+        } else {
+          localStorage.removeItem(activeSessionKey);
+        }
+      }
+    } catch (error) {
+      const language = document.documentElement.lang === "en" ? "en" : "es";
+      showAuthForm("login", "accountReadError");
+    }
+  </script>
+</body>
+</html>
